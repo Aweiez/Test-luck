@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How is your luck today?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 50px;
+            color: #333;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #444;
+        }
+        .luck-description {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>How is your luck today?</h1>
+    <button onclick="checkLuck()">Find Out</button>
+    <div class="result" id="result"></div>
+    <div class="luck-description" id="description"></div>
+
+    <script>
+        function checkLuck() {
+            const luckNumber = Math.floor(Math.random() * 1000) + 1;
+            const result = document.getElementById('result');
+            const description = document.getElementById('description');
+
+            result.textContent = `Your luck number is: ${luckNumber}`;
+
+            if (luckNumber === 1000) {
+                description.textContent = "You're at the pinnacle of luck! The universe is on your side.";
+            } else if (luckNumber > 900) {
+                description.textContent = "You're very lucky today! Seize the day.";
+            } else if (luckNumber > 700) {
+                description.textContent = "Good luck is with you. Things should go well.";
+            } else if (luckNumber > 500) {
+                description.textContent = "Your luck is average. A steady day awaits.";
+            } else if (luckNumber > 300) {
+                description.textContent = "Luck is slightly against you. Be cautious.";
+            } else if (luckNumber > 100) {
+                description.textContent = "It's not your luckiest day. Stay strong.";
+            } else {
+                description.textContent = "It's a tough day luck-wise, but stay positive. Things will improve.";
+            }
+        }
+    </script>
+</body>
+</html>
